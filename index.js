@@ -5,7 +5,8 @@ serviceDiscover.watch(process.env.FILE_TO_WATCH, (err, data)=>{
    console.log('failed')
    return;
 }
- console.log('model is : ' + JSON.stringify(serviceDiscover.model()));
+ console.log('service discovery file detected!');
+// console.log('model is : ' + JSON.stringify(serviceDiscover.model()));
 
  //serviceDiscover.unwatch();
 
