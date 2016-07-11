@@ -1,0 +1,8 @@
+if [ $1 = "copy" ]; then
+   echo "copy of container-map"
+   cp ./tmp/c ./tmp/container-map
+else
+   echo "delete container map"
+   rm  ./tmp/container-map
+
+fi
