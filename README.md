@@ -20,13 +20,11 @@ The problem is that update of this information is asyncronic so process inside t
 We created a nodejs module as example of how you can override this problem.
 
 ## What you need to do :
- Run 
- '''
- npm install serviceDiscovery
- '''
- 
- Then create index.js file that will run first wait of information be updated and then run execute your starting script
- '''
+ 1. Add `serviceDiscovery` to package.json
+ 2. Add a folder `bin/` from `serviceDiscoveryExample` to your project
+ 3. In app.js should be export your `app`
+ 4. Then create `index.js` file that will run first wait of information be updated and then run execute your starting script
+ ```js
  var serviceDiscover = require('serviceDiscovery');
  
  serviceDiscovery.watch(process.env.FILE_TO_WATCH, (err, data)=>{
@@ -40,7 +38,15 @@ We created a nodejs module as example of how you can override this problem.
  
  require('./bin/www');  //once serviceDiscovery detects this information it runs a starting script.
  
-'''
+ ```
+
+ 5. Change start script in `package.json` on 
+ 
+ ```
+ "scripts": {
+    "start": "node ./bin/www"
+  }
+ ```
 
 # How to use this information in your nodejs app
 
